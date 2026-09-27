@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Surprise ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    background:#050505;
+}
+
+/* =========================
+   ALL SCREENS
+========================= */
+
+.screen{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    top:0;
+    left:0;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+#countScreen{
+    background:#050505;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+}
+
+#countNumber{
+    color:white;
+    font-size:80px;
+    font-weight:300;
+    animation:countPop .8s ease;
+}
+
+@keyframes countPop{
+    0%{
+        opacity:0;
+        transform:scale(.5);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.15);
+    }
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* =========================
+   INTRO
+========================= */
+
+#introScreen{
+    background:#fffaf1;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    opacity:0;
+    z-index:8;
+}
+
+.intro-box{
+    animation:introShow 1.5s ease forwards;
+}
+
+.intro-box h1{
+    font-size:42px;
+    font-weight:500;
+    color:#222;
+}
+
+.intro-box h1 span{
+    color:#ff3d6e;
+}
+
+.intro-box p{
+    margin-top:10px;
+    font-size:14px;
+    color:#777;
+}
+
+@keyframes introShow{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   FLOATING PHOTO SCREEN
+========================= */
+
+#memoryScreen{
+    display:none;
+    background:
+        radial-gradient(circle at center,#fffdf7,#f6f1e8);
+    overflow:hidden;
+    z-index:6;
+}
+
+/* PHOTO */
+
+.memory{
+    position:absolute;
+
+    width:145px;
+    padding:7px 7px 24px;
+
+    background:white;
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.25);
+
+    border-radius:2px;
+
+    bottom:-250px;
+
+    animation-name:flyUp;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+}
+
+.memory img{
+    width:100%;
+    height:145px;
+    display:block;
+    object-fit:cover;
+}
+
+/* =========================
+   REAL FLOAT UP
+========================= */
+
+@keyframes flyUp{
+
+    0%{
+        bottom:-250px;
+        opacity:0;
+    }
+
+    8%{
+        opacity:1;
+    }
+
+    90%{
+        opacity:1;
+    }
+
+    100%{
+        bottom:120vh;
+        opacity:0;
+    }
+}
+
+/* =========================
+   DIFFERENT PHOTOS
+========================= */
+
+.m1{
+    left:7%;
+    rotate:-12deg;
+    animation-duration:9s;
+    animation-delay:0s;
+}
+
+.m2{
+    left:68%;
+    rotate:9deg;
+    animation-duration:11s;
+    animation-delay:1.3s;
+}
+
+.m3{
+    left:35%;
+    rotate:-7deg;
+    animation-duration:10s;
+    animation-delay:3s;
+}
+
+.m4{
+    left:78%;
+    rotate:13deg;
+    animation-duration:9.5s;
+    animation-delay:5s;
+}
+
+.m5{
+    left:12%;
+    rotate:8deg;
+    animation-duration:11s;
+    animation-delay:6.5s;
+}
+
+.m6{
+    left:48%;
+    rotate:-10deg;
+    animation-duration:10s;
+    animation-delay:8s;
+}
+
+.m7{
+    left:72%;
+    rotate:-5deg;
+    animation-duration:10.5s;
+    animation-delay:10s;
+}
+
+.m8{
+    left:25%;
+    rotate:11deg;
+    animation-duration:9s;
+    animation-delay:11.5s;
+}
+
+
+/* =========================
+   WHITE FLOATING CARDS
+========================= */
+
+.paper{
+    position:absolute;
+
+    width:25px;
+    height:75px;
+
+    background:white;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.18);
+
+    border-radius:3px;
+
+    bottom:-120px;
+
+    animation-name:paperFloat;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+}
+
+.paper::after{
+    content:"♥";
+    color:#ff6685;
+    font-size:9px;
+
+    position:absolute;
+
+    top:10px;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+@keyframes paperFloat{
+
+    0%{
+        bottom:-120px;
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    90%{
+        opacity:1;
+    }
+
+    100%{
+        bottom:115vh;
+        opacity:0;
+    }
+}
+
+.paper1{
+    left:20%;
+    rotate:-18deg;
+    animation-duration:8s;
+    animation-delay:.5s;
+}
+
+.paper2{
+    left:55%;
+    rotate:13deg;
+    animation-duration:10s;
+    animation-delay:2s;
+}
+
+.paper3{
+    left:83%;
+    rotate:-9deg;
+    animation-duration:9s;
+    animation-delay:3.5s;
+}
+
+.paper4{
+    left:40%;
+    rotate:18deg;
+    animation-duration:11s;
+    animation-delay:5s;
+}
+
+.paper5{
+    left:8%;
+    rotate:-12deg;
+    animation-duration:9s;
+    animation-delay:7s;
+}
+
+.paper6{
+    left:64%;
+    rotate:15deg;
+    animation-duration:10s;
+    animation-delay:8.5s;
+}
+
+.paper7{
+    left:31%;
+    rotate:-15deg;
+    animation-duration:9s;
+    animation-delay:10s;
+}
+
+.paper8{
+    left:88%;
+    rotate:8deg;
+    animation-duration:11s;
+    animation-delay:11s;
+}
+
+/* =========================
+   FINAL SCREEN
+========================= */
+
+#finalScreen{
+    display:none;
+
+    background:
+        radial-gradient(circle at center,#17101b,#050407);
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    z-index:20;
+
+    opacity:0;
+
+    transition:1.5s;
+}
+
+.finalText{
+    z-index:10;
+    padding:20px;
+}
+
+.finalText h1{
+    font-size:48px;
+    margin-bottom:18px;
+}
+
+.finalText h1 span{
+    color:#ff3366;
+}
+
+.finalText p{
+    max-width:600px;
+    font-size:15px;
+    line-height:1.8;
+    color:#ccc;
+}
+
+/* =========================
+   FINAL HEARTS
+========================= */
+
+.heart{
+    position:absolute;
+
+    bottom:-40px;
+
+    color:#ff245d;
+
+    animation:heartUp linear forwards;
+
+    text-shadow:
+        0 0 12px #ff245d;
+
+    pointer-events:none;
+}
+
+@keyframes heartUp{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(-115vh)
+            rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .intro-box h1{
+        font-size:30px;
+    }
+
+    .memory{
+        width:105px;
+        padding:5px 5px 17px;
+    }
+
+    .memory img{
+        height:105px;
+    }
+
+    .finalText h1{
+        font-size:32px;
+    }
+
+    .finalText p{
+        font-size:13px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     COUNTDOWN
+========================= -->
+
+<div id="countScreen" class="screen">
+
+    <div id="countNumber">
+        3
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<div id="introScreen" class="screen">
+
+    <div class="intro-box">
+
+        <h1>
+            Happy Birthday
+            <span>♥</span>
+        </h1>
+
+        <p>
+            My Special Person
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     FLOATING MEMORIES
+========================= -->
+
+<div id="memoryScreen" class="screen">
+
+
+    <!-- YOUR PHOTOS -->
+
+    <div class="memory m1">
+        <img src="photo1.jpg">
+    </div>
+
+    <div class="memory m2">
+        <img src="photo2.jpg">
+    </div>
+
+    <div class="memory m3">
+        <img src="photo3.jpg">
+    </div>
+
+    <div class="memory m4">
+        <img src="photo4.jpg">
+    </div>
+
+    <div class="memory m5">
+        <img src="photo5.jpg">
+    </div>
+
+    <div class="memory m6">
+        <img src="photo6.jpg">
+    </div>
+
+    <div class="memory m7">
+        <img src="photo7.jpg">
+    </div>
+
+    <div class="memory m8">
+        <img src="photo8.jpg">
+    </div>
+
+
+    <!-- WHITE CARDS -->
+
+    <div class="paper paper1"></div>
+    <div class="paper paper2"></div>
+    <div class="paper paper3"></div>
+    <div class="paper paper4"></div>
+    <div class="paper paper5"></div>
+    <div class="paper paper6"></div>
+    <div class="paper paper7"></div>
+    <div class="paper paper8"></div>
+
+
+</div>
+
+
+
+<!-- =========================
+     FINAL SCREEN
+========================= -->
+
+<div id="finalScreen" class="screen">
+
+    <div class="finalText">
+
+        <h1>
+            <span>♥</span>
+            Happy Birthday
+            <span>♥</span>
+        </h1>
+
+        <p>
+            Every moment with you is a beautiful memory.
+            Thank you for being such a special part of my life.
+            May your birthday be filled with love, happiness
+            and everything your heart desires. ❤️
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* ==========================
+   COUNTDOWN
+========================== */
+
+const countScreen =
+document.getElementById("countScreen");
+
+const countNumber =
+document.getElementById("countNumber");
+
+const introScreen =
+document.getElementById("introScreen");
+
+const memoryScreen =
+document.getElementById("memoryScreen");
+
+const finalScreen =
+document.getElementById("finalScreen");
+
+
+let count = 3;
+
+
+const countdown =
+setInterval(() => {
+
+    count--;
+
+    if(count > 0){
+
+        countNumber.innerText = count;
+
+        /* restart animation */
+
+        countNumber.style.animation = "none";
+
+        void countNumber.offsetWidth;
+
+        countNumber.style.animation =
+        "countPop .8s ease";
+
+    }
+
+    else{
+
+        clearInterval(countdown);
+
+        countNumber.innerText = "1";
+
+
+        setTimeout(showIntro,1000);
+
+    }
+
+},1000);
+
+
+
+/* ==========================
+   INTRO SCREEN
+========================== */
+
+function showIntro(){
+
+    countScreen.style.display = "none";
+
+    introScreen.style.display = "flex";
+
+    setTimeout(() => {
+
+        introScreen.style.opacity = "1";
+
+    },50);
+
+
+    /* intro stays */
+
+    setTimeout(showMemories,3500);
+
+}
+
+
+
+/* ==========================
+   MEMORY SCREEN
+========================== */
+
+function showMemories(){
+
+    introScreen.style.display = "none";
+
+    memoryScreen.style.display = "block";
+
+
+    /*
+       Memories will float
+       for about 20 seconds
+    */
+
+    setTimeout(showFinal,20000);
+
+}
+
+
+
+/* ==========================
+   FINAL SCREEN
+========================== */
+
+function showFinal(){
+
+    memoryScreen.style.display = "none";
+
+    finalScreen.style.display = "flex";
+
+
+    setTimeout(() => {
+
+        finalScreen.style.opacity = "1";
+
+    },50);
+
+
+    startHearts();
+
+}
+
+
+
+/* ==========================
+   HEART GENERATOR
+========================== */
+
+function createHeart(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.classList.add("heart");
+
+
+    const symbols =
+    ["♥","❤","💕","♥","💗"];
+
+
+    heart.innerHTML =
+    symbols[
+        Math.floor(
+            Math.random()
+            * symbols.length
+        )
+    ];
+
+
+    heart.style.left =
+    Math.random()*100 + "vw";
+
+
+    heart.style.fontSize =
+    (10 + Math.random()*20)
+    + "px";
+
+
+    heart.style.animationDuration =
+    (5 + Math.random()*5)
+    + "s";
+
+
+    finalScreen.appendChild(heart);
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    },10000);
+
+}
+
+
+
+function startHearts(){
+
+    createHeart();
+
+    setInterval(
+        createHeart,
+        400
+    );
+
+}
+
+</script>
+
+</body>
+</html>
